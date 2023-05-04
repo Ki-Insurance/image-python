@@ -14,5 +14,10 @@ RUN pip install poetry==1.2.1
 
 ENV PYTHONPATH=/app
 
+# add new user, lets not run as root
+RUN adduser -D app
+
+RUN chown -R app /app
+
 USER app
 
